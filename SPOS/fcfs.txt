@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int process[4] = {1,2,3,4};
+    int brusttime[4] = {4,5,6,7};
+    int waitingtime[4];
+    waitingtime[0] = 0;
+      
+
+    for(int i=1;i<4;i++)
+    {
+        waitingtime[i] = waitingtime[i-1] + brusttime[i-1];
+    }
+    cout<<"PROCESS      BRUST TIME      WATING TIME         TURNAROUNDTIME "<<endl;
+    float twt,tat;
+    {
+        for(int j = 0 ;j<4;j++)
+        {
+            cout<<process[j]<<"         ";
+            cout<<brusttime[j]<<"       ";
+            cout<<waitingtime[j]<<"     ";
+            cout<<waitingtime[j]+brusttime[j];
+            cout<<endl;
+
+            twt = twt+waitingtime[j];
+            tat = tat+(waitingtime[j]+brusttime[j]);
+        }
+        float awt,att;
+        awt=twt/4;
+        att=tat/4;
+        cout<<"The average wating time is: "<<awt<<endl;
+        cout<<"the average turnaround time is: "<<att;
+        return 0 ;
+    }
+}
