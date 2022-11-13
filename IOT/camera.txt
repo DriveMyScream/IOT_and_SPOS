@@ -1,0 +1,3 @@
+import os
+image = input("Enter imgage name: ")
+os.system('fswebcam '+image)
